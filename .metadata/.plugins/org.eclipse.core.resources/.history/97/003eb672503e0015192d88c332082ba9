@@ -1,0 +1,63 @@
+package simpleAnimationStarter;
+
+import java.awt.Color;
+import java.awt.Graphics;
+
+public class CircleInfo {
+	
+	private int xPos, yPos, radius, diam;
+	private Color color;
+	
+	
+	public CircleInfo(int xPos, int yPos, int radius){
+		this.xPos = xPos;
+		this.yPos = yPos;
+		this.radius = radius;
+		this.diam = radius * 2;
+		int red = (int) (255 * Math.random());
+		int green = (int) (255 * Math.random());
+		int blue = (int) (255 * Math.random());
+		int trans = (int)(100 * Math.random());
+		color = new Color(red, green, blue, trans);
+		
+	}
+	
+	public void draw(Graphics g){
+		g.setColor(color);
+		g.fillOval(xPos - radius, yPos - radius, diam , diam);
+		g.setColor(Color.BLACK);
+		g.drawOval(xPos- radius, yPos - radius, diam, diam);
+	}
+	
+	public void setXPos(int x){
+		xPos = x;
+	}
+	
+	public int getXPos(){
+		return xPos;
+	}
+	
+	public void setYPos(int y){
+		yPos = y;
+	}
+	
+	public int getYPos(){
+		return yPos;
+	}
+	
+	public void setRadius(int rad){
+		radius = rad;
+	}
+	
+	public int getRadius(){
+		return radius;
+	}
+	
+	public void setColor(Color color){
+		this.color = color;
+	}
+	
+	public Color getColor(){
+		return color;
+	}
+}

@@ -1,0 +1,43 @@
+package com.project;
+
+import java.util.Scanner;
+
+public class UserIn {
+
+	public static double ans = 0.0;
+	public static String op = "";
+	public static double nextNum = 0.0;
+	private static boolean runnin = true;
+	
+	public static void UserInput() {
+		Scanner stdin = new Scanner(System.in);
+		
+		System.out.println("Thanks for using my shitty calc-T3");
+		System.out.println();
+		System.out.println();
+		System.out.println("enter your equation in number1(then enter), operator(then enter), num2(take a guess...) ");
+		System.out.println();
+		
+		while(runnin == true){
+			nextNum = stdin.nextDouble();
+		    Computes.compute(nextNum, op);
+		    op = nextLine();
+		    if(op.equals("") || op.equals("=")){
+		    	runnin = false;
+		    	break;
+		    }else if(op.equalsIgnoreCase("sqrt")){
+		    	ans = Computes.NPC(op, ans);
+		    	break;
+		    }
+		}
+		
+		System.out.printf("that's %1.5f", ans);
+	}
+	
+	private static String nextLine(){
+		Scanner stdin = new Scanner(System.in);
+		String str = stdin.nextLine();
+		return str;
+	}
+
+}

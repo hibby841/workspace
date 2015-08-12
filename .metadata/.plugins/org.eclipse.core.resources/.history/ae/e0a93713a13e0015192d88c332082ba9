@@ -1,0 +1,108 @@
+package cardGame;
+
+import java.util.Scanner;
+
+import cardGameAPI.Card;
+import cardGameAPI.Deck;
+
+public class Main {
+
+	private static int play() {
+		Deck deck = new Deck(true);// create a new deck
+		Card currentCard; // var for the current card(the card the user sees)
+		Card nextCard;// var for next card in deck
+		int correctGuesses = 0;
+		String guess;
+
+		deck.shuffle();
+		correctGuesses = 0;
+		currentCard = deck.dealCard();
+		System.out.println("the first card is: " + currentCard);
+		System.out.println();
+
+		main: while (true) {
+			System.out.println("Will the next card be higher(H) or lower(L)");
+			do {
+				guess = nextLine();
+				if (!guess.equalsIgnoreCase("H")
+						&& !guess.equalsIgnoreCase("L")) {
+					System.out.println("please respond with L or H: ");
+				}
+			} while (!guess.equalsIgnoreCase("H")
+					&& !guess.equalsIgnoreCase("L"));
+
+			nextCard = deck.dealCard();
+			System.out.println("the next card is" + nextCard);
+			if (nextCard.getValue() == currentCard.getValue()) {
+				System.out.println("the value of the next card is the same as the last");
+				System.out.println("Sorry, you lose on ties!");
+				break main;
+			} else if (nextCard.getValue() > currentCard.getValue()) {
+				if (guess.equalsIgnoreCase("H")) {
+					System.out.println("you got it right!!");
+					System.out.println();
+					correctGuesses++;
+				} else {
+					System.out.println("Wrong! Sorry, you lose");
+					System.out.println();
+					break main; // end game as user was wrong
+				}
+			} else { // nextCard is lower
+				if (guess.equalsIgnoreCase("L")) {
+					System.out.println("you got it right!!");
+					System.out.println();
+					correctGuesses++;
+				} else {
+					System.out.println("Wrong! Sorry, you lose");
+					System.out.println();
+					break main; // end game as user was wrong
+				}
+			}
+			currentCard = nextCard;
+		}
+		System.out.println();
+		System.out.println("The games over, you got" + correctGuesses + " right!");
+		return correctGuesses;
+	}
+
+	private static String nextLine() {
+		Scanner stdin = new Scanner(System.in);
+		String str = stdin.nextLine();
+		return str;
+	}
+
+	public static void main(String[] args) {
+		int gamesPlayed = 0;
+		int totalScore = 0;
+		double averageScore;
+		String playAgain = "N";
+		int scoreThisGame = 0;
+
+		System.out
+				.println("Im gonna deal a card and you try to guess wether the next on is higher or lower");
+		System.out.println();
+		do {
+			scoreThisGame = play();
+			gamesPlayed++;
+			System.out.println("would you like to play again (Y) or (N)");
+			do {
+				playAgain = nextLine();
+				if (!playAgain.equalsIgnoreCase("Y")
+						&& !playAgain.equalsIgnoreCase("N")) {
+					throw new IllegalArgumentException(
+							"please use Y or N to continue");
+				}
+
+			} while (!playAgain.equalsIgnoreCase("Y")
+					&& !playAgain.equalsIgnoreCase("N"));
+
+		} while (!playAgain.equalsIgnoreCase("Y"));
+
+		averageScore = ((double) totalScore / gamesPlayed);
+		System.out.printf("you played " + gamesPlayed
+				+ "times and got an average score of %1.3f\n", averageScore);
+		System.out.println();
+		System.out.println("Thanks for playing!!!");
+	}
+
+}

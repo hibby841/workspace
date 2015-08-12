@@ -1,0 +1,34 @@
+package com.project;
+
+public class Computes {
+
+	public static void compute(double num, String oper){
+		if(oper.equals("")){
+			UserIn.ans = num;
+		}else{
+			if(oper.equals("+")){
+				UserIn.ans += num;
+			}else if(oper.equals("-")){
+				UserIn.ans -= num;
+			}else{
+				System.out.println("invalid operator");
+			}
+		}
+	}
+
+
+	
+	public static double NPC(String oper, double num1){
+		double guess = num1/2.0;
+		double diff = (guess * guess) - num1;
+		double epsilon = 0.001;
+		
+		while( diff > epsilon){
+			guess -= diff/(guess * 2.0);
+			diff = (guess * guess) - num1;
+		}
+		
+		return guess;
+	}
+	
+}
