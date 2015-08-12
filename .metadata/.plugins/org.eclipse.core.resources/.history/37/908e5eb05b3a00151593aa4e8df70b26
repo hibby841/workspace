@@ -1,0 +1,67 @@
+package com.project;
+
+import java.util.Scanner;
+
+public class UserIn {
+
+	public static double num1;
+	public static String op;
+	public static double num2;
+	public static double opedOnNum;
+	
+	
+	public static void UserInput(){
+		int count = 0;
+		Scanner stdin = new Scanner( System.in );
+	   
+	    System.out.println("thanks for using this crappy calc.");
+	    System.out.println("youll enter your equation in the form:(number 1, enter, operator, enter num 2 etc)");
+	    System.out.println();
+	    
+	    System.out.println("type help for....ya and enter = or exit for your operator to exit!");
+    	System.out.println();
+	    
+	    System.out.print("enter your first number: ");
+        
+	    num1 = stdin.nextDouble();
+        System.out.println();
+        
+        while(true){
+        	
+        	System.out.println("enter your operator?: ");
+        	op = nextLine();
+        	
+        	if(op.equals("=") || op.equals("exit") || op.equals("") ){
+        		System.out.println(op);
+    	    	break;
+        	}else if(op.equalsIgnoreCase("sqrt")){
+        		if(count == 0){
+        		    opedOnNum += Computes.NPC(op, num1);
+        		}else{
+        			opedOnNum += Computes.NPC(op, opedOnNum);
+        		}
+        	}else{
+        		System.out.println("enter another number: ");
+        		num2 = stdin.nextDouble();
+        		opedOnNum += Computes.compute(op, num1, num2);
+        	}
+        	count = 1;
+        }
+        
+        System.out.println();
+        System.out.println();
+        System.out.println(opedOnNum);
+        
+	}
+
+	
+	private static String nextLine(){
+		Scanner stdin = new Scanner( System.in);
+		String str = stdin.nextLine();
+		stdin.close();
+		return str;
+		
+	}
+   	
+	
+}

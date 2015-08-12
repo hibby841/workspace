@@ -1,0 +1,31 @@
+package com.hibby.test;
+
+import java.util.Scanner;
+
+public class UserIn {
+
+	public static Scanner stdin = new Scanner(System.in);
+	public static double user1;
+	public static String op;
+	public static double user2;
+	
+	public static void main(String args[]){
+	
+		System.out.println("enter a number");
+		user1 = stdin.nextDouble();
+		
+		
+		 
+		
+		while(true){
+		    System.out.println("enter your operator or nothing to exit");
+		    op = stdin.nextLine();
+		
+		    if(op.equals("")){
+		    	break;
+		    }
+		}
+		System.out.println("thanks!");
+	}
+	
+}
