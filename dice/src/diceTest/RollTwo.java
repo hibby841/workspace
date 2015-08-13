@@ -1,0 +1,32 @@
+package diceTest;
+
+public class RollTwo {
+
+	public static void main(String[] args) {
+		PairOfDice firstPair = new PairOfDice(); //refers to the first pair of dice
+		
+		PairOfDice secondPair = new PairOfDice(); //refers to the second pair of dice
+		
+		int countRolls = 0; // keeps track of number of times the 2 pairs have been rolled
+		
+		int total1;
+		int total2;
+		
+		do{  //roll the two pair until their totals are the same
+			countRolls++;
+			
+			firstPair.roll();
+			total1 = firstPair.getDie1() + firstPair.getDie2();
+			System.out.println("pair one had a total of " + total1 + " at roll " + countRolls);
+			
+			secondPair.roll();
+			total2 = secondPair.getDie1() + secondPair.getDie2();
+			System.out.println("pair two had a total of " + total2 + " at roll " + countRolls);
+			
+		}while(total1 != total2); 
+		
+		System.out.println("it took " + countRolls + " rolls to get a match");
+		
+	}
+
+}

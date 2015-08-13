@@ -1,0 +1,21 @@
+package diceTest;
+
+public class PairOfDice {
+
+	private int die1; // number showing on the first die
+	private int die2; // number showing on the second die
+	
+	public PairOfDice(){
+		//constructor. creates a pair of dice
+		// with random "shown" values
+		die1 = (int)(6 * Math.random()); //assigns the numbers showing on the
+		die2 = (int)(6 * Math.random()); //dice to a random number between 1 and 6
+	}
+	
+	
+	public void roll(){
+		die1 = (int)(6 * Math.random()); //sets the die to a random number between 1 and 6
+		die1 = (int)(6 * Math.random()); //sets the die to a random number between 1 and 6
+	}
+	
+}
