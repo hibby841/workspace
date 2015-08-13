@@ -1,0 +1,10 @@
+package dice2;
+
+public class SnakeEyes {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

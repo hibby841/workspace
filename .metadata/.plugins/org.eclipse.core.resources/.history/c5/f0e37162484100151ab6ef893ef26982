@@ -1,0 +1,10 @@
+package diceTest;
+
+public class RollTwo {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}

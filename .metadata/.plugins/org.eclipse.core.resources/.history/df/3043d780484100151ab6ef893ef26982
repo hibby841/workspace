@@ -1,0 +1,11 @@
+package diceTest;
+
+public class RollTwo {
+
+	public static void main(String[] args) {
+		int rand = (int)(3 * Math.random());
+		System.out.println(rand);
+
+	}
+
+}
