@@ -27,7 +27,7 @@ public class Card {
 	/**
 	 * 
 	 * @param suit, the first param, is an int to represent the suit
-	 * @param value, the second param, is an int for the value
+	 * @param value, the second param, is an int for the value of the card
 	 */
 	public Card(int suit, int value){
 		if(suit != SPADES && suit != HEARTS && suit != CLUBS && suit != DIAMONDS && suit != JOKER){
