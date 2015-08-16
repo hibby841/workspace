@@ -1,0 +1,28 @@
+package blackjack;
+
+import cardGameAPI.BlackjackHand;
+import cardGameAPI.Deck;
+
+public class Game {
+	Deck deck = new Deck(false);
+	BlackjackHand player = new BlackjackHand();
+	BlackjackHand cpu = new BlackjackHand();
+	
+	private boolean win; // keep track of win or lose
+	
+	
+	public Game(){
+		System.out.println("thanks for playin... you start with 2 cards");
+		for(int i = 0; i < 2; i++){
+			player.addCard(deck.dealCard());
+			cpu.addCard(deck.dealCard());
+		}
+		player.displayHand();
+	}
+	
+	
+	public boolean getWon(){
+		return win;
+	}
+
+}

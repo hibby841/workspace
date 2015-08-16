@@ -1,0 +1,32 @@
+package blackjack;
+
+
+public class Main {
+	
+	
+	public static void main(String[] args) {
+		boolean yaOrNa = false;
+		String playAgain;
+		System.out.println("thanks for playin... you start with 2 cards");
+		System.out.println("and you can type sort to sort your hand by card value");
+		System.out.println();
+		do{
+		    boolean won = false;
+		    won = Game.run();
+		    if(won == true){
+			    System.out.println("CONGRATZ!!! you won");
+		    }else{
+			    System.out.println("FAIL!!! you lost");
+			    System.out.println();
+		    }
+		    System.out.println("would you like another go?.? 'yes' or 'no'?:");
+		    do{
+		    	playAgain = Game.nextLine();
+		    	if(playAgain.equalsIgnoreCase("yes") || playAgain.equalsIgnoreCase("true")){
+		    		yaOrNa = true;
+		    	}
+		    }while(!(playAgain.equalsIgnoreCase("yes") || playAgain.equalsIgnoreCase("true")) );
+		}while(yaOrNa == false);
+	}
+
+}

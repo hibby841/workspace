@@ -1,0 +1,13 @@
+package blackjack;
+
+import cardGameAPI.BlackjackHand;
+import cardGameAPI.Hand;
+
+public class Main {
+	
+	public static void main(String[] args) {
+		Game bj = new Game();
+	    boolean winner = bj.getWon();
+	}
+
+}

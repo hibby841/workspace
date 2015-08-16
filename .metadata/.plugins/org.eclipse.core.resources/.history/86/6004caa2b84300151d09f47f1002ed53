@@ -1,0 +1,14 @@
+package blackjack;
+
+import cardGameAPI.BlackjackHand;
+import cardGameAPI.Hand;
+
+public class Main {
+	
+	
+	public static void main(String[] args) {
+		boolean won = false;
+		won = Game.run();
+	}
+
+}

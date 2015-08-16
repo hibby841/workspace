@@ -1,0 +1,25 @@
+package cardGameAPI;
+
+import java.util.ArrayList;
+
+public class Hand {
+
+	private ArrayList<Card> hand;
+	private Deck deck = new Deck(false);
+	
+	public Hand(){
+		hand = new ArrayList<Card>();
+		hand.add(deck.dealCard());
+	}
+	
+	
+	
+	public void addCard(Card newCard){
+		hand.add(newCard);
+	}
+	
+	
+	public Card getCard(int position){
+		return hand.get(position);
+	}
+}

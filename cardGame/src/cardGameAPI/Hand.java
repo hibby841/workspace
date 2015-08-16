@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 public class Hand {
 	
-	private ArrayList<Card> hand; // an arrayList to keep track of the cards in hand
 	
-	
+	private ArrayList<Card> hand;
+
 	/**
 	 * constructs a new EMPTY hand
 	 */
@@ -25,8 +25,9 @@ public class Hand {
 	 * @throws IllegalArgumentException if c is null
 	 */
 	public void addCard(Card c){
-		if(c == null)
+		if(c == null){
 			throw new IllegalArgumentException("card value was null");
+		}
 		hand.add(c);
 	}
 	
@@ -57,11 +58,7 @@ public class Hand {
 	 * @return card at given position
 	 */
 	public Card getCard(int position){
-		Card c = null;
-		if(position < 0 || position > hand.size()){
-			c = hand.get(position);
-		}
-		return c;
+		return hand.get(position);
 	}
 	
 	/**
@@ -111,5 +108,6 @@ public class Hand {
 		}
 		hand = newHand;
 	}
+	
 	
 }

@@ -1,0 +1,24 @@
+package blackjack;
+
+import cardGameAPI.BlackjackHand;
+import cardGameAPI.Card;
+import cardGameAPI.Deck;
+import cardGameAPI.Hand;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Deck deck = new Deck(false);
+		Hand player = new Hand();
+		Card c = deck.dealCard();
+		
+		player.addCard(c);
+		c = deck.dealCard();
+		player.addCard(c);
+		player.sortByValue();
+		System.out.println(c);
+		System.out.println(player.getCard(1));
+		
+	}
+
+}

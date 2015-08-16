@@ -1,0 +1,16 @@
+package blackjack;
+
+import java.util.ArrayList;
+
+import cardGameAPI.Card;
+import cardGameAPI.Deck;
+import cardGameAPI.Hand;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Hand player = new Hand();
+		System.out.println(player.getCard(0));
+	}
+
+}

@@ -5,9 +5,10 @@ public class BlackjackHand extends Hand {
 	public int getBlackjackValue(){
 	    int val = 0; //value computed for hand
 	    boolean ace = false; //boolean to track aces
-	    int cards = cardCount(); //num of cards in hand
+	    int cards = 0; //num of cards in hand
 	
-	    for(int i = 0; i < cards; i++){
+	    cards = cardCount();
+	    for(int i = 1; i <= cards; i++){
 		    Card card = getCard(i); //the i-th card
 		    int cardVal; //the blackjack value of the card
 		
