@@ -1,0 +1,56 @@
+package cardGameAPI;
+
+import java.util.ArrayList;
+
+public class Hand {
+
+	private ArrayList<Card> hand;
+	
+	
+	
+	/**
+	 * constructs empty hand
+	 */
+	public Hand(){
+		hand = new ArrayList<Card>();
+	}
+	
+	
+	
+	/**
+	 * empties hand
+	 */
+	public void clearHand(){
+		hand.clear();
+	}
+	
+	/**
+	 * adds a card to the "card list"
+	 * @param newCard, card to be added
+	 */
+	public void addCard(Card newCard){
+		hand.add(newCard);
+	}
+	
+	
+	public void removeCard(int position){
+		if(position < 0 || position > hand.size()){
+			throw new IllegalArgumentException("invalid position in hand");
+		}else{
+			hand.remove(position);
+		}
+	}
+	
+	/**
+	 * returns the card at given position in hand
+	 * @param position: given position
+	 * @return: card at position
+	 */
+	public Card getCard(int position){
+		if(position < 0 || position > hand.size()){
+			throw new IllegalArgumentException("invalid position in hand");
+		}else{
+		    return hand.get(position);
+		}
+	}
+}

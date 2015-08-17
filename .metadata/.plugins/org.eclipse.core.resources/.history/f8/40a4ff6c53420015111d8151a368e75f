@@ -1,0 +1,13 @@
+package blackjack;
+
+import java.util.ArrayList;
+
+public class Main {
+
+	public static void main(String[] args) {
+		ArrayList<String> test = new ArrayList<String>();
+		test.add("test");
+		System.out.println(test.get(0));
+	}
+
+}

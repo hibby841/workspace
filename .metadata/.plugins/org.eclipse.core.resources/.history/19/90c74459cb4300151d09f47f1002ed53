@@ -1,0 +1,80 @@
+package blackjack;
+
+import java.util.Scanner;
+
+import cardGameAPI.BlackjackHand;
+import cardGameAPI.Deck;
+
+public class Game {
+	
+	
+	public static boolean run(){  //returns a true if player wins game
+		Deck deck = new Deck(false);
+		deck.shuffle();
+		BlackjackHand player = new BlackjackHand();
+		BlackjackHand cpu = new BlackjackHand();
+		
+		System.out.println("thanks for playin... you start with 2 cards");
+		System.out.println();
+		for(int i = 0; i < 2; i++){
+			player.addCard(deck.dealCard());
+			cpu.addCard(deck.dealCard());
+		}
+		player.displayHand();
+		
+		if(player.getBlackjackValue() == 21){
+			return true;
+		}else if(cpu.getBlackjackValue() == 21){
+			return false;
+		}
+		// loop for "hit or stand"
+		while(true){
+			System.out.println("would you like to \"hit\" or \"stand\"");
+			
+			boolean validAns = false; //keeps track of weather or not user answers right
+			String ans; //answer
+			
+			do{
+				ans = nexLine();
+				if(!(ans.equalsIgnoreCase("hit") || ans.equalsIgnoreCase("stand")) ){
+					validAns = false;
+				}else{
+					validAns = true;
+				}
+			}while(validAns == false);
+			
+			if(ans.equalsIgnoreCase("hit")){
+				player.addCard(deck.dealCard());
+				cpu.addCard(deck.dealCard());
+				player.displayHand();
+			}else if(ans.equalsIgnoreCase("stand")){
+				player.displayHand();
+				if(player.getBlackjackValue() == 21 || player.getBlackjackValue() > cpu.getBlackjackValue()){
+					System.out.println(player.getBlackjackValue());
+					return true;
+				}else if(cpu.getBlackjackValue() == 21 || cpu.getBlackjackValue() > player.getBlackjackValue()){
+					System.out.println(player.getBlackjackValue());
+					return false;
+				}
+			}
+			
+			if(player.getBlackjackValue() == 21 || cpu.getBlackjackValue() > 21){
+				System.out.println("the cpu went over 21");
+				return true;
+			}else if(cpu.getBlackjackValue() == 21 || player.getBlackjackValue() > 21){
+				System.out.println(player.getBlackjackValue());
+				return false;
+			}
+		}
+	}
+
+
+	private static String nexLine() {
+		Scanner stdin = new Scanner(System.in);
+		String ans = stdin.nextLine();
+		return ans;
+	}
+	
+	
+
+}

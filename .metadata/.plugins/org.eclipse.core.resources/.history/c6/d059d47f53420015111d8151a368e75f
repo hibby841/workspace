@@ -1,0 +1,16 @@
+package blackjack;
+
+import java.util.ArrayList;
+
+import cardGameAPI.Deck;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Deck deck = new Deck(false);
+		ArrayList<String> test = new ArrayList<String>();
+		test.add("test");
+		System.out.println(deck.dealCard());
+	}
+
+}

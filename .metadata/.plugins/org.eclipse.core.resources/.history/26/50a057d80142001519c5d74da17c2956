@@ -1,0 +1,38 @@
+package blackjack;
+
+import cardGameAPI.BlackjackHand;
+import cardGameAPI.Deck;
+import cardGameAPI.Hand;
+
+public class Game {
+
+	public boolean blackjack(){
+		int Winner = 0; //1 is the player and 2 is the cpu
+		
+		Deck deck = new Deck(false);
+		BlackjackHand player1 = new BlackjackHand();
+		BlackjackHand cpu = new BlackjackHand();
+		
+		for(int i = 1; i <= 4; i++){
+			if(i % 2 == 0){
+				player1.addCard(deck.dealCard());
+			}else{
+				cpu.addCard(deck.dealCard());
+			}
+		}
+		player1.printHand();
+		
+		if(cpu.getBlackjackValue() == 21){
+		    Winner = 2;
+		}else if(player1.getBlackjackValue() == 21){
+			Winner = 1;
+		}
+		while(Winner == 0){
+			
+		}
+		
+		return false;
+	}
+
+	
+}

@@ -1,0 +1,25 @@
+package blackjack;
+
+import cardGameAPI.BlackjackHand;
+import cardGameAPI.Deck;
+
+public class Main {
+
+	public static void main(String[] args) {
+	    BlackjackHand player = new BlackjackHand();
+	    BlackjackHand cpu = new BlackjackHand();
+	    Deck deck = new Deck(false);
+	    deck.shuffle();
+	    
+	    for(int i = 0; i < 2; i++){
+	    	player.addCard(deck.dealCard());
+	    	cpu.addCard(deck.dealCard());
+	    }
+	    for(int i = 0; i < player.cardCount(); i++){
+	    	System.out.println(player.getCard(i));
+	    	System.out.println(player.getCard(i).getValue());
+	    }
+	    System.out.println(player.getBlackjackValue());
+	}
+
+}

@@ -1,0 +1,90 @@
+package cardGameAPI;
+
+import java.util.ArrayList;
+
+public class Hand {
+
+	private ArrayList<Card> hand;
+	
+	
+	
+	/**
+	 * constructs empty hand
+	 */
+	public Hand(){
+		hand = new ArrayList<Card>();
+	}
+	
+	
+	
+	/**
+	 * empties hand
+	 */
+	public void clearHand(){
+		hand.clear();
+	}
+	
+	/**
+	 * adds a card to the "card list"
+	 * @param newCard, card to be added
+	 */
+	public void addCard(Card newCard){
+		hand.add(newCard);
+	}
+	
+	
+	public void removeCard(int position){
+		if(position < 0 || position > hand.size()){
+			throw new IllegalArgumentException("invalid position in hand");
+		}else{
+			hand.remove(position);
+		}
+	}
+	
+	public int cardCount(){
+		return hand.size();
+	}
+	
+	/**
+	 * returns the card at given position in hand
+	 * @param position: given position
+	 * @return: card at position
+	 */
+	public Card getCard(int position){
+		if(position < 0 || position > hand.size()){
+			throw new IllegalArgumentException("invalid position in hand");
+		}else{
+		    return hand.get(position);
+		}
+	}
+	
+	/**
+	 * sorts the players hand by value and
+	 * cards with the same value are sorted by suit
+	 */
+	public void sortByValue(){
+		ArrayList<Card> newHand = new ArrayList<Card>();
+		
+		while(!(hand.size() == 0)){
+			int pos = 0; // minimal cards position
+			Card c = hand.get(0); // minimal card
+			for(int i = 0; i < hand.size(); i++){
+				Card c1 = hand.get(i);
+				if(c1.getValue() < c.getValue() || c1.getValue() == c.getValue() && c1.getSuit() < c.getSuit()){
+					pos = i;
+					c = c1;
+				}
+			}
+			hand.remove(pos);
+			newHand.add(c);
+		}
+		hand = newHand;
+	}
+	
+	public void displayHand(){
+		for(int i = 0; i < hand.size(); i++){
+			System.out.println(hand.get(i));
+		}
+	}
+	
+}

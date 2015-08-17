@@ -1,0 +1,19 @@
+package blackjack;
+
+import cardGameAPI.BlackjackHand;
+import cardGameAPI.Hand;
+
+public class Main {
+	
+	
+	public static void main(String[] args) {
+		boolean won = false;
+		won = Game.run();
+		if(won == true){
+			System.out.println("CONGRATZ!!! you won");
+		}else{
+			System.out.println("FAIL!!! you lost");
+		}
+	}
+
+}

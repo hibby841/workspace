@@ -1,0 +1,113 @@
+package cardGameAPI;
+
+import java.util.ArrayList;
+
+public class Hand {
+	
+	
+	private ArrayList<Card> hand;
+
+	/**
+	 * constructs a new EMPTY hand
+	 */
+	public Hand(){
+		hand = new ArrayList<Card>(); 
+	}
+	
+	//clears the hand
+	public void clearHand(){
+		hand.clear();
+	}
+
+	/**
+	 * add card "c" to the end of the hand
+	 * @param c is the card to be added
+	 * @throws IllegalArgumentException if c is null
+	 */
+	public void addCard(Card c){
+		if(c == null){
+			throw new IllegalArgumentException("card value was null");
+		}
+		hand.add(c);
+	}
+	
+	//removes card "c" from hand
+	public void removeCard(Card c){
+		hand.remove(c);
+	}
+	
+	/**
+	 * removes a card from the given integer position in the hand
+	 * if its a valid position
+	 * @param position is the location to remove a card from
+	 */
+	public void removeCard(int position){
+		if(position < 0 || position > hand.size()){
+			hand.remove(position);
+		}
+	}
+	
+	//returns number of cards in hand
+	public int cardCount(){
+		return hand.size();
+	}
+	
+	/**
+	 * returns the card at the given position
+	 * @param position the location in hand 
+	 * @return card at given position
+	 */
+	public Card getCard(int position){
+		return hand.get(position);
+	}
+	
+	/**
+     * Sorts the cards in the hand so that cards of the same suit are
+     * grouped together, and within a suit the cards are sorted by value.
+     * Note that aces are considered to have the lowest value, 1.
+     */
+	public void sortBySuit(){
+		ArrayList<Card> newHand = new ArrayList<Card>(); 
+		
+		while(!(hand.size() == 0) ){
+			int pos = 0; //position of minimal card
+			Card c = hand.get(0); //minimal card
+			for(int i = 1; i < hand.size(); i++){
+				Card c1 = hand.get(i); //sets c1 to the card at index i
+				if(c1.getSuit() < c.getSuit() || c1.getSuit() == c.getSuit() && c1.getValue() < c.getValue()){
+					pos = i; //set position of minimal card to i
+					c = c1; // set c, the minimal card, to c1
+				}
+			}
+			hand.remove(pos); //remove pos, position of minimal card, from the hand
+			newHand.add(c); // add the minimal card to newHand. Note this card is removed from hand already
+		}
+		hand = newHand; //set hand to the "newHand"
+	}
+	
+	/**
+     * Sorts the cards in the hand so that cards of the same value are
+     * grouped together.  Cards with the same value are sorted by suit.
+     * Note that aces are considered to have the lowest value, 1.
+     */
+	public void sortByValue(){
+		ArrayList<Card> newHand = new ArrayList<Card>();
+		
+		while(!(hand.size() == 0)){
+			int pos = 0;
+			Card c = hand.get(0);
+			for(int i = 1; i < hand.size(); i++){
+				Card c1 = hand.get(i);
+				if(c1.getValue() < c.getValue() || c1.getValue() == c.getValue() && c1.getSuit() < c.getSuit()){
+					pos = i;
+					c = c1;
+				}
+			}
+			hand.remove(pos);
+			newHand.add(c);
+		}
+		hand = newHand;
+	}
+	
+	
+}

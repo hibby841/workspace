@@ -1,0 +1,33 @@
+package cardGameAPI;
+
+import java.util.ArrayList;
+
+public class Hand {
+
+	private ArrayList<Card> hand;
+	
+	
+	/**
+	 * constructs empty hand
+	 */
+	public Hand(){
+		hand = new ArrayList<Card>();
+	}
+	
+	
+	/**
+	 * empties hand
+	 */
+	public void clearHand(){
+		hand.clear();
+	}
+	
+	public void addCard(Card newCard){
+		hand.add(newCard);
+	}
+	
+	
+	public Card getCard(int position){
+		return hand.get(position);
+	}
+}
