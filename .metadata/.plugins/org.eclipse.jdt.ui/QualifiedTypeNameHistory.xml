@@ -6,8 +6,8 @@
 <fullyQualifiedTypeName name="javax.swing.Timer"/>
 <fullyQualifiedTypeName name="java.util.Collections"/>
 <fullyQualifiedTypeName name="java.lang.management.GarbageCollectorMXBean"/>
+<fullyQualifiedTypeName name="cardGameAPI.Card"/>
 <fullyQualifiedTypeName name="cardGameAPI.Hand"/>
 <fullyQualifiedTypeName name="cardGameAPI.BlackjackHand"/>
-<fullyQualifiedTypeName name="cardGameAPI.Card"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
 </qualifiedTypeNameHistroy>
